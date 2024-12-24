@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://cj3hx1spsfu1e"]
+[gd_scene load_steps=8 format=4 uid="uid://cj3hx1spsfu1e"]
 
 [ext_resource type="PackedScene" uid="uid://dnsmuc3ggxsjs" path="res://scenes/player.tscn" id="1_6a8je"]
 [ext_resource type="Texture2D" uid="uid://d35nws2numuoq" path="res://assets/sprites/world_tileset.png" id="2_fehd8"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="3_hen5n"]
+[ext_resource type="PackedScene" uid="uid://bx7mekigw8iai" path="res://scenes/kill_zone.tscn" id="4_bltys"]
+[ext_resource type="PackedScene" uid="uid://cg1i8hsuyerix" path="res://scenes/coin.tscn" id="5_abckj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l3x7m"]
 texture = ExtResource("2_fehd8")
@@ -176,8 +178,6 @@ texture = ExtResource("2_fehd8")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_l3x7m")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7n0x0"]
-
 [node name="Game" type="Node2D"]
 position = Vector2(-6, -1)
 
@@ -185,8 +185,8 @@ position = Vector2(-6, -1)
 position = Vector2(-242, -16)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(22, 16)
-tile_map_data = PackedByteArray("AADw//7/AAAAAAAAAADx//7/AAAAAAAAAADw//3/AAAIAAMAAADv//7/AAAAAAAAAADu//7/AAAAAAAAAAD2//3/AAAAAAAAAAD3//3/AAAAAAAAAAD7//7/AAAAAAAAAAD8//7/AAAAAAAAAAD///z/AAAAAAAAAAAAAPz/AAAAAAAAAAABAPz/AAAAAAAAAAD6//n/AAAAAAAAAAD7//n/AAAAAAAAAAD8//n/AAAAAAAAAADx//j/AAAAAAAAAADy//j/AAAAAAAAAADz//j/AAAAAAAAAAA=")
+position = Vector2(24, 20)
+tile_map_data = PackedByteArray("AADw//7/AAAAAAAAAADx//7/AAAAAAAAAADw//3/AAAIAAMAAADv//7/AAAAAAAAAADu//7/AAAAAAAAAADy//3/AAAAAAAAAADz//3/AAAAAAAAAAD0//3/AAAAAAAAAAD1//3/AAAAAAAAAAD2//3/AAAAAAAAAAD3//3/AAAAAAAAAAD4//7/AAAAAAAAAAD6//7/AAAAAAAAAAD5//7/AAAAAAAAAAD7//7/AAAAAAAAAAD8//7/AAAAAAAAAAD9//7/AAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP7/AAAAAAAAAAADAP7/AAAAAAAAAAAEAP3/AAAAAAAAAAAFAP3/AAAAAAAAAAAGAP3/AAAAAAAAAAAHAP3/AAAAAAAAAAAIAP3/AAAAAAAAAAAJAPz/AAAAAAAAAAD3//z/AAAGAAEAAAD4//v/AAAGAAEAAAD5//v/AAAGAAEAAAD6//v/AAAGAAEAAAD7//v/AAAGAAEAAAD8//v/AAAGAAEAAAD9//v/AAAGAAEAAAD+//v/AAAGAAEAAAD///v/AAAGAAEAAAAAAPv/AAAGAAEAAAA=")
 tile_set = SubResource("TileSet_excyn")
 use_kinematic_bodies = true
 
@@ -196,8 +196,14 @@ position_smoothing_enabled = true
 script = ExtResource("3_hen5n")
 target = NodePath("../player")
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(8, 269)
+[node name="KillZone" parent="." instance=ExtResource("4_bltys")]
+position = Vector2(6, 203)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("WorldBoundaryShape2D_7n0x0")
+[node name="coin" parent="." instance=ExtResource("5_abckj")]
+position = Vector2(-176, -28)
+
+[node name="coin2" parent="." instance=ExtResource("5_abckj")]
+position = Vector2(-17, -12)
+
+[node name="coin3" parent="." instance=ExtResource("5_abckj")]
+position = Vector2(128, -27)

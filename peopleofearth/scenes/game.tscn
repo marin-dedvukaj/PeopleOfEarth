@@ -191,6 +191,7 @@ tile_set = SubResource("TileSet_excyn")
 use_kinematic_bodies = true
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(-242, -22)
 zoom = Vector2(3.5, 3.5)
 position_smoothing_enabled = true
 script = ExtResource("3_hen5n")

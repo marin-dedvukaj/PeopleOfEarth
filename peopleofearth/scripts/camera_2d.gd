@@ -2,8 +2,8 @@ extends Camera2D
 @export var follow_speed = 5.0
 @export var target: Node2D
 
-func _ready() -> void:
-	pass # Replace with function body.
+func _ready():
+	pass
 
 
 func _process(delta: float) -> void:

@@ -176,7 +176,7 @@ texture = ExtResource("2_fehd8")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_l3x7m")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qix7l"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7n0x0"]
 
 [node name="Game" type="Node2D"]
 position = Vector2(-6, -1)
@@ -196,8 +196,8 @@ position_smoothing_enabled = true
 script = ExtResource("3_hen5n")
 target = NodePath("../player")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(8, 269)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(4, 251)
-shape = SubResource("WorldBoundaryShape2D_qix7l")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("WorldBoundaryShape2D_7n0x0")
